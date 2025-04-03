@@ -31,7 +31,7 @@ export default async function SupabaseWorkflow(
   }>();
 
   const response = await fetch(
-    `${SUPABASE_URL}/rest/v1/profiles?kinde_id=eq.${event.user.id}`,
+    `${SUPABASE_URL}/rest/v1/profiles?kinde_id=eq.${event.context.user.id}`,
     {
       method: "GET",
       headers: {
