@@ -26,16 +26,13 @@ export default async function SupabaseWorkflow(
   const SUPABASE_ANON_KEY = getEnvironmentVariable(
     "NEXT_PUBLIC_SUPABASE_ANON_KEY"
   )?.value;
-  const SUPABASE_URL = getEnvironmentVariable(
-    "NEXT_PUBLIC_SUPABASE_URL"
-  )?.value;
 
   const accessToken = accessTokenCustomClaims<{
     lifetime_subscriber: boolean;
   }>();
 
   const response = await fetch(
-    `${SUPABASE_URL}/rest/v1/profiles?kinde_id=eq.${event.context.user.id}`,
+    `https://mjvyvgsfpcndidwbgcio.supabase.co/rest/v1/profiles?kinde_id=eq.${event.context.user.id}`,
     {
       method: "GET",
       headers: {
