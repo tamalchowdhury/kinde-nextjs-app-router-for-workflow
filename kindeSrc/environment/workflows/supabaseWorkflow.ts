@@ -23,16 +23,16 @@ export const workflowSettings: WorkflowSettings = {
 export default async function SupabaseWorkflow(
   event: onUserTokenGeneratedEvent
 ) {
-  const SUPABASE_ANON_KEY = getEnvironmentVariable(
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY"
-  )?.value;
+  const SUPABASE_ANON_KEY = getEnvironmentVariable("SUPABASE_ANON_KEY")?.value;
+
+  const SUPABASE_URL = getEnvironmentVariable("SUPABASE_URL")?.value;
 
   const accessToken = accessTokenCustomClaims<{
     lifetime_subscriber: boolean;
   }>();
 
   const response = await fetch(
-    `https://mjvyvgsfpcndidwbgcio.supabase.co/rest/v1/profiles?kinde_id=eq.${event.context.user.id}`,
+    `${SUPABASE_URL}/rest/v1/profiles?kinde_id=eq.${event.context.user.id}`,
     {
       method: "GET",
       headers: {
