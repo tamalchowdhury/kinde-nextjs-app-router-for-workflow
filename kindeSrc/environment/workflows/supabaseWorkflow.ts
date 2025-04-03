@@ -23,8 +23,12 @@ export const workflowSettings: WorkflowSettings = {
 export default async function SupabaseWorkflow(
   event: onUserTokenGeneratedEvent
 ) {
-  const SUPABASE_ANON_KEY = getEnvironmentVariable("SUPABASE_ANON_KEY")?.value;
-  const SUPABASE_URL = getEnvironmentVariable("SUPABASE_URL")?.value;
+  const SUPABASE_ANON_KEY = getEnvironmentVariable(
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY"
+  )?.value;
+  const SUPABASE_URL = getEnvironmentVariable(
+    "NEXT_PUBLIC_SUPABASE_URL"
+  )?.value;
 
   const accessToken = accessTokenCustomClaims<{
     lifetime_subscriber: boolean;
