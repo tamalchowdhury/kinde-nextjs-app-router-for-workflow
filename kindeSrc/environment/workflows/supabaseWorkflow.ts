@@ -36,6 +36,7 @@ export default async function SupabaseWorkflow(
     {
       method: "GET",
       headers: {
+        apiKey: SUPABASE_ANON_KEY,
         Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
         "Content-Type": "application/json",
       },
