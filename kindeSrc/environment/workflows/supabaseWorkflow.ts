@@ -42,6 +42,8 @@ export default async function SupabaseWorkflow(
     }
   );
 
+  console.log("response", response);
+
   if (response.data.length > 0) {
     const profile = response.data[0];
     accessToken.lifetime_subscriber = profile?.lifetime_subscriber;
