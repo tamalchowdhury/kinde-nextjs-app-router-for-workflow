@@ -24,7 +24,6 @@ export default async function SupabaseWorkflow(
   event: onUserTokenGeneratedEvent
 ) {
   const SUPABASE_ANON_KEY = getEnvironmentVariable("SUPABASE_ANON_KEY")?.value;
-
   const SUPABASE_URL = getEnvironmentVariable("SUPABASE_URL")?.value;
 
   const accessToken = accessTokenCustomClaims<{
@@ -42,8 +41,6 @@ export default async function SupabaseWorkflow(
       },
     }
   );
-
-  console.log("response", response);
 
   if (response.data.length > 0) {
     const profile = response.data[0];
